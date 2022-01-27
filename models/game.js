@@ -16,10 +16,20 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        game_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "wishList",
+                key: "id"
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'wishList',
+        modelName: 'game',
     }
-    }
+    
+)
+
+module.exports = Game
