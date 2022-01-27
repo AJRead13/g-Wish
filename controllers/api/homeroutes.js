@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const WishList = require('../../models/wishlist');
+const User = require('../../models/user')
+// const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const projectData = await Project.findAll({
+    const wishlistData = await WishList.findAll({
       include: [
         {
           model: User,
@@ -13,11 +15,11 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const wishLists = wishlistData.map((wishLists) => wishLists.get({ plain: true }));
 
 
     res.render('homepage', { 
-      projects, 
+      wishLists, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -25,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/wishlist/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const wishlistData = await WishList.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -36,10 +38,10 @@ router.get('/project/:id', async (req, res) => {
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const wishlist = wishlistData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('wishlist', {
+      ...wishlist,
       logged_in: req.session.logged_in
     });
   } catch (err) {
