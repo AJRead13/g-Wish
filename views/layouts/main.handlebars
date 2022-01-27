@@ -23,7 +23,7 @@
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                {{#if loggedIn}}
+                {{#if logged_in}}
                 <li class="nav-item">
                 <a class="nav-link" href="/dashboard">Wishlist</a>
                 </li>
@@ -84,7 +84,7 @@
         <a class="text-white" href="">G-Wish</a>
     </div>
     </footer>
-    {{#if loggedIn}}
+    {{#if logged_in}}
         <script src="/js/logout.js"></script>
     {{/if}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
