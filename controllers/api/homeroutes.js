@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const WishList = require('../../models/wishlist');
-const { Wishlist, User } = require('../models');
+const User = require('../../models/user')
+// const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -26,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/wishlist/:id', async (req, res) => {
   try {
-    const  = await Project.findByPk(req.params.id, {
+    const wishlistData = await WishList.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -37,10 +38,10 @@ router.get('/project/:id', async (req, res) => {
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const wishlist = wishlistData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('wishlist', {
+      ...wishlist,
       logged_in: req.session.logged_in
     });
   } catch (err) {
