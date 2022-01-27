@@ -16,7 +16,7 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        game_id: {
+        wishList_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: "wishList",
