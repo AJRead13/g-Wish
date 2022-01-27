@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class WishList extends Model { };
+class Game extends Model { };
 
-WishList.init(
+Game.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -16,23 +16,10 @@ WishList.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        body: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "user",
-                key: "id"
-            }
-        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'wishList',
     }
-);
-
-module.exports = WishList;
+    }
