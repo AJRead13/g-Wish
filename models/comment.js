@@ -18,7 +18,6 @@ Comment.init(
                 model: 'wishList',
                 key: 'id'
             }
-
         },
         comment_text: {
             type: DataTypes.STRING,

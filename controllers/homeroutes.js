@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const WishList = require('../models/wishlist');
+const WishList = require('../models/wishList');
 const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
@@ -48,27 +48,27 @@ router.get('/wishlist', async (req, res) => {
 });
 
 
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Project }],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/wishlist');
     return;
   }
 

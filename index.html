@@ -43,7 +43,27 @@
         </div>
     </nav>
     <main>
-        {{{Body}}}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{img_url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <p class="card-text">{{release_date}}</p>
+              <a href="#" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a>
+            </div>
+          </div>
+          <div class="card m-5">
+              <div class="card-header">
+              </div>
+              <div class="card-body">
+                  <form class="form comment">
+                      <div class="form-group">
+                          <label for="comment-description">Comment</label>
+                          <textarea class="form-control" id="comment-description" rows="3"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                  </form>
+              </div>
+          </div>
     </main>
     <footer class="bg-dark text-center text-white">
     <div class="container p-4 pb-0">
