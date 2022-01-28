@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User } = require('../../models');
 const auth = require('../../utils/auth');
 
 
@@ -28,4 +28,4 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-module.exports = Comment;
+module.exports = router;
