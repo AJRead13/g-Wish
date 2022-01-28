@@ -12,22 +12,30 @@ Comment.init(
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
-          },
-          wishList_id: {
+        },
+        wishList_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-              model: 'wishList',
-              key: 'id'
+                model: 'wishList',
+                key: 'id'
             }
-          },
-          comment_text: {
+
+        },
+        comment_text: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 max: 400,
             }
-          }
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "user",
+                key: "id"
+            }
+        },
     },
     {
         sequelize,
@@ -35,7 +43,7 @@ Comment.init(
         underscored: true,
         modelName: 'comment'
     }
+
 );
 
 module.exports = Comment
-    
