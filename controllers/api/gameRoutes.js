@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Game= require('../../models/game');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -26,4 +26,4 @@ router.get('/', async (req, res) => {
 
 
 
-module.exports = Game
+module.exports = router;
