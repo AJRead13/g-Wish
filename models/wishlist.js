@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connections');
 
-class Game extends Model { };
+class WishList extends Model {}
 
-Game.init(
+WishList.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,22 +12,18 @@ Game.init(
             autoIncrement: true,
             primaryKey: true
         },
-        gameName: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        gameImage: {
+        body: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        releaseDate: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        wishList_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "wishList",
+                model: "user",
                 key: "id"
             }
         },
@@ -36,9 +33,8 @@ Game.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'game',
+        modelName: 'wishList',
     }
-    
-)
+);
 
-module.exports = Game
+module.exports = WishList;

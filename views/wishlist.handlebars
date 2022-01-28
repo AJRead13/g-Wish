@@ -1,3 +1,18 @@
 {{#each games as |game|}}
 {{> wishlistGames}}
 {{/each}}
+<div class="card m-5">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <form class="form comment">
+            <div class="form-group">
+                <label for="comment-description">Comment</label>
+                <textarea class="form-control" id="comment-description" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="./scripts/comment.js"></script>
