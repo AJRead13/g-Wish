@@ -12,8 +12,16 @@ Game.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        gameName: {
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        gameImage: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        releaseDate: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         wishList_id: {
