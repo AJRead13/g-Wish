@@ -35,5 +35,9 @@ Comment.belongsTo(WishList, {
     foreignKey: 'wishList_id'
 });
 
+Game.hasMany(WishList, {
+    foreignKey: 'game_id'
+});
+
 
 module.exports = {User, WishList, Comment, Game};
