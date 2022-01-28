@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connections');
 
 class Game extends Model { };
 
@@ -31,6 +31,8 @@ Game.init(
                 key: "id"
             }
         },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
