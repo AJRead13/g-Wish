@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
-const auth = require('../../utils/auth');
+const { Comment, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 router.get('/', async (req, res) => {
@@ -60,4 +60,4 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-module.exports = Comment;
+module.exports = router;

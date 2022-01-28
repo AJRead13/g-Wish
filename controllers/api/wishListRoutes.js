@@ -52,4 +52,4 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-module.exports = WishList;
+module.exports = router;

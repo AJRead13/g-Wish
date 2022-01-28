@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const WishList = require('../../models/wishlist');
-const User = require('../../models/user')
+const WishList = require('../models/wishlist');
+const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
-const Game = require('./gameRoutes');
+const Game = require('./api/gameRoutes');
 
 router.get('/', async (req, res) => {
   try {
