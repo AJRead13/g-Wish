@@ -3,33 +3,31 @@ const WishList = require('../../models/wishlist');
 const User = require('../../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
+const Game = require('./gameRoutes');
 
 router.get('/', async (req, res) => {
   try {
-    const wishlistData = await WishList.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const gameData = await Game.findAll({
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
-    const wishLists = wishlistData.map((wishLists) => wishLists.get({ plain: true }));
-
-
-    res.render('homepage', { 
-      wishLists, 
-      logged_in: req.session.logged_in 
+    const games = gameData.map((games) => games.get({ plain: true }));
+    res.render('homepage', { games, 
+      // logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/wishlist/:id', async (req, res) => {
+router.get('/wishlist', async (req, res) => {
   try {
-    const wishlistData = await WishList.findByPk(req.params.id, {
+    const wishlistData = await WishList.findAll({
       include: [
         {
           model: User,
