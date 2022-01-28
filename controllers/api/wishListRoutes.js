@@ -19,7 +19,6 @@ try {
 })
 
 
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newWishList = await WishList.create({
@@ -53,4 +52,4 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = WishList;
