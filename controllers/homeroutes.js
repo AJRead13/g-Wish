@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
 router.get('/wishlist', async (req, res) => {
   try {
-    const wishlistData = await WishList.findAll({
+    const wishlistData = await WishList.findByPk(req.session.user_id, {
       include: [
         {
           model: User,
