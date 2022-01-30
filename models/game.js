@@ -20,7 +20,7 @@ Game.init(
             allowNull: false
         },
         releaseDate: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DATE,
             allowNull: false
         },
         wishList_id: {
