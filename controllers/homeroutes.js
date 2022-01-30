@@ -3,7 +3,7 @@ const WishList = require('../models/wishList');
 const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
-const Game = require('./api/gameRoutes');
+const Game = require('../models/game');
 
 router.get('/', async (req, res) => {
   try {
