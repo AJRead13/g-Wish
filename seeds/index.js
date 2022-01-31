@@ -3,7 +3,7 @@ const seedUsers = require('./user_seed');
 const seedComments = require('./comment_seed');
 const seedGames = require('./game_seed')
 
-const sequelize = require('../config/connections');
+const sequelize = require('../config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
