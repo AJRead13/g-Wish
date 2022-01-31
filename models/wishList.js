@@ -27,12 +27,15 @@ WishList.init(
                 key: "id"
             }
         },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'wishList',
-    }
+        modelName: 'wishList'
+    },
+    
 );
 
 module.exports = WishList;
