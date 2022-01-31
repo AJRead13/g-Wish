@@ -25,7 +25,28 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/wishlist', async (req, res) => {
+router.get('/wishlists', async (req, res) =>{
+  try {
+      const allWishLists = await WishList.findAll({
+          include: [
+              {
+                  model: Game
+              },
+          ],
+      });res.status(200).json(allWishLists);
+      const wishlist = wishlistData.map((wishLists) => wishLists.get({ plain: true }));
+      // const wishlist = allWishLists.get({ plain: true });
+
+    res.render('wishlist', {
+      ...wishlist,
+      // logged_in: req.session.logged_in
+    });
+  } catch (error) {
+      res.status(500).json(error)
+  }
+  });
+
+router.get('/wishlist/', async (req, res) => {
   try {
     const wishlistData = await WishList.findByPk(req.session.user_id, {
       include: [
@@ -73,6 +94,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+  return;
 });
 
 module.exports = router;
