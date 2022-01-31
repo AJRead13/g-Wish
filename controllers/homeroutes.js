@@ -3,8 +3,7 @@ const router = require('express').Router();
 // const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
-// const Game = require('../models/game');
-const { Game, User, WishList } = require('../models')
+const Game = require('../models/game');
 
 // get all games / homepage
 router.get('/', async (req, res) => {
@@ -60,7 +59,21 @@ router.get('/wishlist/:id', async (req, res) => {
         },
       ],
     });
+  } catch (error) {
+      res.status(500).json(error)
+  }
+  });
 
+router.get('/wishlist/:id', async (req, res) => {
+  try {
+    const wishlistData = await WishList.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Game,
+      //   },
+      // ],
+    });
+    console.log("test");
     const wishlist = wishlistData.get({ plain: true });
 
     return res.render('wishlist', {
@@ -102,6 +115,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+  return;
 });
 
 module.exports = router;
