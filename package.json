@@ -1,12 +1,15 @@
 {
-    "name": "crowd-funding",
+    "name": "g-wish",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
+    "engines":{
+      "node":"16.9.0"
+    },
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "node server.js",
-      "seed": "node seeds/seed.js"
+      "seed": "node seeds/index.js"
     },
     "keywords": [],
     "author": "",
