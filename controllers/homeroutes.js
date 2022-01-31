@@ -3,7 +3,7 @@ const WishList = require('../models/wishList');
 const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
-const Game = require('./api/gameRoutes');
+const Game = require('../models/game');
 
 router.get('/', async (req, res) => {
   try {
@@ -25,19 +25,39 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/wishlist', async (req, res) => {
+router.get('/wishlists', async (req, res) =>{
   try {
-    const wishlistData = await WishList.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      const allWishLists = await WishList.findAll({
+          include: [
+              {
+                  model: Game
+              },
+          ],
+      });res.status(200).json(allWishLists);
+      const wishlist = wishlistData.map((wishLists) => wishLists.get({ plain: true }));
+      // const wishlist = allWishLists.get({ plain: true });
+
+    res.render('wishlist', {
+      ...wishlist,
+      // logged_in: req.session.logged_in
     });
+  } catch (error) {
+      res.status(500).json(error)
+  }
+  });
 
+router.get('/wishlist/:id', async (req, res) => {
+  try {
+    const wishlistData = await WishList.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Game,
+      //   },
+      // ],
+    });
+    console.log("test");
     const wishlist = wishlistData.get({ plain: true });
-
+console.log("wishlist", wishlist);
     res.render('wishlist', {
       ...wishlist,
       logged_in: req.session.logged_in
@@ -73,6 +93,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+  return;
 });
 
 module.exports = router;
