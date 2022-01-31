@@ -2,22 +2,7 @@ const router = require('express').Router();
 const { WishList, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) =>{
-try {
-    const allWishLists = await WishList.findAll({
-        include: [
-            {
-                model: User,
-                attributes: ['user_name'],
-            },
-        ],
-    });res.status(200).json(allWishLists);
-    
-} catch (error) {
-    res.status(500).json(error)
-}
-})
-
+// api/wishlists
 
 router.post('/', withAuth, async (req, res) => {
   try {
