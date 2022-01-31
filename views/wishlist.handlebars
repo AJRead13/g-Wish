@@ -1,15 +1,8 @@
-{{!-- {{#each wishList.games as |game|}}
-{{> wishlistGames}}
-{{/each}} --}}
-<div class="card m-5" style="width: 18rem;">
-  <img class="card-img-top" src="{{img_url}}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{game.gameName}}</h5>
-    <p class="card-text">{{release_date}}</p>
-    <a href="#" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a>
-  </div>
+<div class="row d-flex justify-content-center">
+    {{#each wishlist.games as |game|}}
+    {{> wishlistGames}}
+    {{/each}}
 </div>
-
 <div class="card m-5">
     <div class="card-header">
     </div>

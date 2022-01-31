@@ -2,8 +2,7 @@ const router = require('express').Router();
 const { WishList, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-
+// api/wishlists
 
 router.post('/', withAuth, async (req, res) => {
   try {
