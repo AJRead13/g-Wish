@@ -1,6 +1,8 @@
-{{#each games as |game|}}
-{{> wishlistGames}}
-{{/each}}
+<div class="row d-flex justify-content-center">
+    {{#each wishlist.games as |game|}}
+    {{> wishlistGames}}
+    {{/each}}
+</div>
 <div class="card m-5">
     <div class="card-header">
     </div>

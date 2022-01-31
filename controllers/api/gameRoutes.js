@@ -2,6 +2,8 @@ const router = require('express').Router();
 const Game= require('../../models/game');
 const withAuth = require('../../utils/auth');
 
+// api/games
+
 router.get('/', async (req, res) => {
     try {
       const gameData = await Game.findAll({

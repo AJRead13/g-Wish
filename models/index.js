@@ -23,9 +23,9 @@ WishList.belongsTo(User, {
 //     foreignKey: 'wishList_id'
 // });
 
-// WishList.hasMany(Game, {
-//     foreignKey: 'wishList_id'
-// });
+WishList.hasMany(Game, {
+    foreignKey: 'wishList_id'
+});
 
 Game.belongsTo(WishList, {
     foreignKey: 'wishList_id'

@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const WishList = require('../models/wishList');
-const User = require('../models/user')
+// const WishList = require('../models/wishList');
+// const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
-const Game = require('./api/gameRoutes');
+// const Game = require('../models/game');
+const { Game, User, WishList } = require('../models')
 
+// get all games / homepage
 router.get('/', async (req, res) => {
   try {
     const gameData = await Game.findAll({
@@ -17,28 +19,51 @@ router.get('/', async (req, res) => {
     });
 
     const games = gameData.map((games) => games.get({ plain: true }));
-    res.render('homepage', { games, 
-      // logged_in: req.session.logged_in 
+    return res.render('homepage', { games, 
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/wishlist', async (req, res) => {
+// Get all wishlists / All Wishlists page
+router.get('/wishlists', async (req, res) =>{
   try {
-    const wishlistData = await WishList.findByPk(req.session.user_id, {
+      const allWishLists = await WishList.findAll({
+          include: [
+              {
+                  model: User,
+                  attributes: ['username'],
+              },
+          ],
+      });
+      const wishlists = allWishLists.map((wishlists) => wishlists.get({ plain: true }));
+
+      return res.render('allWishlists', {
+        ...wishlists,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  })
+
+// req.session.id
+// Get one wishlist / Your Wishlist page
+router.get('/wishlist/:id', async (req, res) => {
+  try {
+    const wishlistData = await WishList.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Game,
         },
       ],
     });
 
     const wishlist = wishlistData.get({ plain: true });
 
-    res.render('wishlist', {
+    return res.render('wishlist', {
       ...wishlist,
       logged_in: req.session.logged_in
     });
@@ -47,28 +72,32 @@ router.get('/wishlist', async (req, res) => {
   }
 });
 
+// Possibly need this too
+// Get one wishlist / Takes you to wishlist page of other user
+router.get('/wishlists/:id', async (req, res) => {
+  try {
+    const wishlistData = await WishList.findByPk(req.params.id, {
+      include: [
+        {
+          model: Game,
+        },
+      ],
+    });
 
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Project }],
-//     });
+    const wishlist = wishlistData.get({ plain: true });
 
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    return res.render('wishlist', {
+      ...wishlist,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/wishlist');
+    res.redirect('/');
     return;
   }
 

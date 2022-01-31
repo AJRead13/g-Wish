@@ -1,0 +1,12 @@
+<div class="col-md-4">
+    <a href="/wishlist/{{id}}" class="text-decoration-none text-light">
+        <div class="card m-5" style="width: 25rem;">
+            <img class="card-img-top" src="{{id}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{user.username}}</h5>
+                <p class="card-text">{{format_date createDate}}</p>
+                {{!-- add createDate to wishlist model? --}}
+            </div>
+        </div>
+    </a>
+</div>
