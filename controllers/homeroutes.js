@@ -1,6 +1,6 @@
 const router = require('express').Router();
-// const WishList = require('../models/wishList');
-// const User = require('../models/user')
+const WishList = require('../models/wishList');
+const User = require('../models/user')
 // const { Wishlist, User } = require('../models');
 const withAuth = require('../utils/auth');
 const Game = require('../models/game');
@@ -59,21 +59,6 @@ router.get('/wishlist/:id', async (req, res) => {
         },
       ],
     });
-  } catch (error) {
-      res.status(500).json(error)
-  }
-  });
-
-router.get('/wishlist/:id', async (req, res) => {
-  try {
-    const wishlistData = await WishList.findByPk(req.params.id, {
-      // include: [
-      //   {
-      //     model: Game,
-      //   },
-      // ],
-    });
-    console.log("test");
     const wishlist = wishlistData.get({ plain: true });
 
     return res.render('wishlist', {
