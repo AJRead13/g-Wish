@@ -46,19 +46,18 @@ router.get('/wishlists', async (req, res) =>{
   }
   });
 
-router.get('/wishlist/', async (req, res) => {
+router.get('/wishlist/:id', async (req, res) => {
   try {
-    const wishlistData = await WishList.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const wishlistData = await WishList.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Game,
+      //   },
+      // ],
     });
-
+    console.log("test");
     const wishlist = wishlistData.get({ plain: true });
-
+console.log("wishlist", wishlist);
     res.render('wishlist', {
       ...wishlist,
       logged_in: req.session.logged_in
