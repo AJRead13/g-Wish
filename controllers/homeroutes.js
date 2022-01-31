@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
 
     const games = gameData.map((games) => games.get({ plain: true }));
     return res.render('homepage', { games, 
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_id: req.session.id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -38,9 +39,9 @@ router.get('/wishlists', async (req, res) =>{
           ],
       });
       const wishlists = allWishLists.map((wishlists) => wishlists.get({ plain: true }));
-
+      console.log(wishlists);
       return res.render('allWishlists', {
-        ...wishlists,
+        wishlists,
         logged_in: req.session.logged_in
       });
     } catch (err) {
@@ -62,7 +63,7 @@ router.get('/wishlist/:id', async (req, res) => {
     const wishlist = wishlistData.get({ plain: true });
 
     return res.render('wishlist', {
-      ...wishlist,
+      wishlist,
       logged_in: req.session.logged_in
     });
   } catch (err) {
