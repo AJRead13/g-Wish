@@ -19,7 +19,7 @@ const addToWishlistHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/wishlist');
-        console.log('went okay');
+        console.log('got here');
       } else {
         alert('Failed to add to wishlist');
       }
