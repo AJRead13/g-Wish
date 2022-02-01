@@ -12,14 +12,14 @@ WishList.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        body: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        // name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
+        // body: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
