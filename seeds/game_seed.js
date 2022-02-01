@@ -15,67 +15,67 @@ const gameData = [
     },
     {
         gameName: 'warzone',
-        gameImage: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.activision.com%2Fcall-of-duty%2F2020-03%2FIntroducing-a-game-changing-FREE-TO-PLAY-experience-Call-of-Duty-Warzone&psig=AOvVaw1ZUUSGDiwX4UW9UwZzt2z0&ust=1643751007857000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLCh7en33PUCFQAAAAAdAAAAABAD',
+        gameImage: 'https://cdn.charlieintel.com/wp-content/uploads/2022/01/26093844/Call-of-Duty-Warzone-2.jpg.webp',
         releaseDate: '2021-02-25',
         wishList_id: 3
     },
     {
         gameName: 'minecraft',
-        gameImage: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.playstation.com%2Fen-us%2Fgames%2Fminecraft%2F&psig=AOvVaw30E6fv6eudZGoRXxGVL4QJ&ust=1643751036015000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNitg_f33PUCFQAAAAAdAAAAABAD',
+        gameImage: 'https://is3-ssl.mzstatic.com/image/thumb/Purple116/v4/d8/74/95/d87495c8-df3f-4e62-1982-f3fac9bd8601/AppIcon-0-0-1x_U007emarketing-0-0-0-9-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x600wa.png',
         releaseDate: '2021-03-15',
         wishList_id: 4
     },
     {
         gameName: 'lego star wars',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://cdn.cloudflare.steamstatic.com/steam/apps/920210/capsule_616x353.jpg?t=1643148138',
         releaseDate: '2021-03-20',
         wishList_id: 5
     },
     {
         gameName: 'monster hunter rise',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/capsule_616x353.jpg?t=1643623908',
         releaseDate: '2022-01-12',
         wishList_id: 1
     },
     {
         gameName: 'The Anacrusis',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://s3.gaming-cdn.com/images/products/9074/orig/the-anacrusis-early-access-pc-game-steam-cover.jpg',
         releaseDate: '2022-01-13',
         wishList_id: 2
     },
     {
         gameName: 'God of War',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://cdn1.epicgames.com/offer/3ddd6a590da64e3686042d108968a6b2/EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7',
         releaseDate: '2022-01-14',
         wishList_id: 3
     },
     {
         gameName: 'Nobody Saves the World',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://img.xboxachievements.com/images/2022/01/18/icon/92bb0c9e32eaa1ab4c634ee5c0e3549a-l.png',
         releaseDate: '2022-01-18',
         wishList_id: 4
     },
     {
         gameName: 'Rainbow Six Extraction',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://image.api.playstation.com/vulcan/ap/rnd/202105/1919/TQPQtelumFuvM4njKGjgJHQP.png',
         releaseDate: '2022-01-20',
         wishList_id: 5
     },
     {
         gameName: 'Windjammers 2',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://images.nintendolife.com/0c26979b9a413/windjammers-2-cover.cover_large.jpg',
         releaseDate: '2022-01-20',
         wishList_id: 1
     },
     {
         gameName: 'Pupperazzi',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1028350/capsule_616x353.jpg?t=1643127286',
         releaseDate: '2022-01-20',
         wishList_id: 2
     },
     {
         gameName: 'Not For Broadcast',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://upload.wikimedia.org/wikipedia/en/e/e2/Not_For_Broadcast_Key_Art.png',
         releaseDate: '2022-01-25',
         wishList_id: 3
     },
