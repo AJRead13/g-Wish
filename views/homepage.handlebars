@@ -1,29 +1,31 @@
-<div class="row bg-primary">
-        <div class="container col-md-6 mt-5 mb-5">
+<div class="col-lg-12 bg-custom p-5">
+        <div class="container-fluid col-md-6">
                  <h2 class="text-white text-center">Search for Upcoming Games</h2>
                 <div class="d-flex justify-content-center">
                         <div class="input-group rounded"> 
                                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                <span class="input-group-text border-0" id="search-addon">
+                                <button class="input-group-text border-0" id="search-addon">
                                 <i class="fas fa-search"></i>
-                                </span>
+                                </button>
                         </div>
                 </div>
         </div>
-        <div class="container mb-5">
-                <h2 class="text-white text-center">Search Results</h2>
+        <div class="container" id="search-results">
+                {{!-- <h2 class="text-white text-center">Search Results</h2>
                 <div class="row d-flex justify-content-center">
                         {{#each games as |game|}}
                         {{> upcomingGames}}
                         {{/each}}
-                </div>
+                </div> --}}
         </div>
 </div>
 <div class="container mt-5 mb-5">
-        <h2 class="text-center">Games added by other users</h2>
+        <h2 class="text-center text-white">Games added by other users</h2>
         <div class="row d-flex justify-content-center">
                 {{#each games as |game|}}
                 {{> upcomingGames}}
                 {{/each}}
         </div>
 </div>
+
+<script src="/scripts/fetchApi.js"></script>

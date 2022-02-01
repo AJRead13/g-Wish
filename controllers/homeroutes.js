@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
     const games = gameData.map((games) => games.get({ plain: true }));
     return res.render('homepage', { games, 
       logged_in: req.session.logged_in,
-      user_id: req.session.id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -28,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get all wishlists / All Wishlists page
-router.get('/wishlists', async (req, res) =>{
+router.get('/wishlists', withAuth, async (req, res) =>{
   try {
       const allWishLists = await WishList.findAll({
           include: [
@@ -39,7 +38,6 @@ router.get('/wishlists', async (req, res) =>{
           ],
       });
       const wishlists = allWishLists.map((wishlists) => wishlists.get({ plain: true }));
-      console.log(wishlists);
       return res.render('allWishlists', {
         wishlists,
         logged_in: req.session.logged_in
@@ -51,19 +49,26 @@ router.get('/wishlists', async (req, res) =>{
 
 // req.session.id
 // Get one wishlist / Your Wishlist page
-router.get('/wishlist/:id', async (req, res) => {
+router.get('/wishlist', withAuth, async (req, res) => {
   try {
     const wishlistData = await WishList.findByPk(req.session.user_id, {
       include: [
         {
           model: Game,
         },
+        {
+          model: User,
+        }
       ],
     });
-    const wishlist = wishlistData.get({ plain: true });
+    
+    if (!wishlistData) {
+      return res.render('createWishlist');
+    }
 
+    const wishlist = wishlistData.get({ plain: true });
     return res.render('wishlist', {
-      wishlist,
+      ...wishlist,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -86,9 +91,8 @@ router.get('/wishlists/:id', async (req, res) => {
     const wishlist = wishlistData.get({ plain: true });
 
     return res.render('wishlist', {
-      ...wishlist,
-      logged_in: req.session.logged_in,
-      user_id: req.session.id
+      wishlist,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);

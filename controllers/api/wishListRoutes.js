@@ -4,14 +4,34 @@ const withAuth = require('../../utils/auth');
 
 // api/wishlists
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newWishList = await WishList.create({
-      ...req.body,
+      // ...req.body,
       user_id: req.session.user_id,
     });
-
+    console.log(newWishList);
     res.status(200).json(newWishList);
+
+  } catch (err) {
+    console.log("400 error");
+    res.status(400).json(err);
+  }
+});
+
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const updatedWishList = await WishList.update({
+      ...req.body,
+      user_id: req.session.user_id,
+    },
+    {
+      where: {
+        id: req.session.id,
+      },
+    });
+
+    res.status(200).json(updatedWishList);
   } catch (err) {
     res.status(400).json(err);
   }
