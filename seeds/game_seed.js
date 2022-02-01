@@ -15,13 +15,13 @@ const gameData = [
     },
     {
         gameName: 'warzone',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.activision.com%2Fcall-of-duty%2F2020-03%2FIntroducing-a-game-changing-FREE-TO-PLAY-experience-Call-of-Duty-Warzone&psig=AOvVaw1ZUUSGDiwX4UW9UwZzt2z0&ust=1643751007857000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLCh7en33PUCFQAAAAAdAAAAABAD',
         releaseDate: '2021-02-25',
         wishList_id: 3
     },
     {
         gameName: 'minecraft',
-        gameImage: 'https://picsum.photos/200',
+        gameImage: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.playstation.com%2Fen-us%2Fgames%2Fminecraft%2F&psig=AOvVaw30E6fv6eudZGoRXxGVL4QJ&ust=1643751036015000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNitg_f33PUCFQAAAAAdAAAAABAD',
         releaseDate: '2021-03-15',
         wishList_id: 4
     },
