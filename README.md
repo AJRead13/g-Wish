@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a collaborative full-stack web application that combines a robust back-end with servers, databases, advanced APIs, and user authentication—-to an intuitive front end. It was created from scratch and is deployed using Heroku. This application gives users the opportuinity to create a list of video games pulling data from the RawG api. Other users can comment on the posted game lists sharing their thoughts and creating a community experience.
+This is a collaborative full-stack web application that combines a robust back-end with servers, databases, advanced APIs, and user authentication—-to an intuitive front end. It was created from scratch and is deployed using Heroku. This application gives users the opportunity to create a list of video games pulling data from the RawG api. Other users can comment on the posted game lists sharing their thoughts and creating a community experience.
 
 
 ## Table of Contents (Optional)
@@ -14,16 +14,11 @@ This is a collaborative full-stack web application that combines a robust back-e
 
 ## Installation
 
-There are no steps for instalation. Simply run the deployed link in your browser.
+There are no steps for installation. Simply run the deployed link in your browser.
 
 ## Usage
-
-Below is a link to a walkthrough video that will demonstrate the usage of this application.
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-
+- Deployed Link: https://afternoon-stream-65311.herokuapp.com/
+- Repo Link: https://github.com/AJRead13/g-Wish
 ## Credits
 
 This application was created collaboratively by Warren Haskins, John Roberts, Andrew Reed and Jose Dominguez. Their Github profiles are listed below. 
