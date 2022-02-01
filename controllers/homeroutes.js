@@ -53,7 +53,7 @@ router.get('/wishlists', async (req, res) =>{
 // Get one wishlist / Your Wishlist page
 router.get('/wishlist/:id', async (req, res) => {
   try {
-    const wishlistData = await WishList.findByPk(req.params.id, {
+    const wishlistData = await WishList.findByPk(req.session.user_id, {
       include: [
         {
           model: Game,
@@ -87,7 +87,8 @@ router.get('/wishlists/:id', async (req, res) => {
 
     return res.render('wishlist', {
       ...wishlist,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_id: req.session.id
     });
   } catch (err) {
     res.status(500).json(err);
